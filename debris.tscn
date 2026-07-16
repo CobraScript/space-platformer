@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bdvxumcj78myo"]
+
+[ext_resource type="PackedScene" uid="uid://lsbr4mmj7vbo" path="res://assets/art/debris[placeholder].glb" id="1_e8eya"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_uehjo"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_f3t10"]
+radius = 0.15
+
+[node name="Debris" type="RigidBody3D" unique_id=1567341222]
+physics_material_override = SubResource("PhysicsMaterial_uehjo")
+freeze = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1469927642]
+shape = SubResource("SphereShape3D_f3t10")
+
+[node name="Pivot" type="Node3D" parent="." unique_id=2031565843]
+
+[node name="Model" parent="Pivot" unique_id=36186981 instance=ExtResource("1_e8eya")]
