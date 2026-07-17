@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://0ysaefpfdvx8"]
+
+[ext_resource type="Shader" uid="uid://dva7y8mgogg01" path="res://assets/invert.gdshader" id="1_nt7q6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c6smh"]
+shader = ExtResource("1_nt7q6")
+
+[node name="UI" type="Control" unique_id=392161742]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Crosshair" type="Control" parent="." unique_id=1048485022]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -30.0
+offset_right = 30.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Crosshair" unique_id=369682602]
+material = SubResource("ShaderMaterial_c6smh")
+layout_mode = 0
+offset_top = 27.0
+offset_right = 22.0
+offset_bottom = 33.0
+
+[node name="ColorRect2" type="ColorRect" parent="Crosshair" unique_id=744241268]
+material = SubResource("ShaderMaterial_c6smh")
+layout_mode = 0
+offset_left = 38.0
+offset_top = 27.0
+offset_right = 60.0
+offset_bottom = 33.0
+
+[node name="ColorRect3" type="ColorRect" parent="Crosshair" unique_id=2109652329]
+material = SubResource("ShaderMaterial_c6smh")
+layout_mode = 0
+offset_left = 27.0
+offset_top = 38.0
+offset_right = 33.0
+offset_bottom = 60.0
+
+[node name="ColorRect4" type="ColorRect" parent="Crosshair" unique_id=2112142730]
+material = SubResource("ShaderMaterial_c6smh")
+layout_mode = 0
+offset_left = 27.0
+offset_right = 33.0
+offset_bottom = 22.0

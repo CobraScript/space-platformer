@@ -8,6 +8,7 @@
 radius = 0.15
 
 [node name="Debris" type="RigidBody3D" unique_id=1567341222]
+collision_layer = 2
 physics_material_override = SubResource("PhysicsMaterial_uehjo")
 freeze = true
 
