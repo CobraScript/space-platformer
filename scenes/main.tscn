@@ -1,3 +1,41 @@
 [gd_scene format=3 uid="uid://8oi8tc6twahr"]
 
+[ext_resource type="PackedScene" uid="uid://bdvxumcj78myo" path="res://scenes/debris.tscn" id="1_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://bcp8d3vsp6rnd" path="res://scenes/player.tscn" id="2_sugp2"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_sugp2"]
+
+[sub_resource type="Sky" id="Sky_0wfyh"]
+sky_material = SubResource("PanoramaSkyMaterial_sugp2")
+
+[sub_resource type="Environment" id="Environment_c6smh"]
+background_mode = 1
+background_color = Color(0.015686275, 0, 0.05490196, 1)
+sky = SubResource("Sky_0wfyh")
+ambient_light_source = 2
+ambient_light_color = Color(0.11327698, 0.11327698, 0.11327698, 1)
+
 [node name="Main" type="Node3D" unique_id=1168402534]
+
+[node name="Debris" parent="." unique_id=1567341222 instance=ExtResource("1_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6434506, 0.5390956, -0.53451586)
+
+[node name="Debris2" parent="." unique_id=1113010559 instance=ExtResource("1_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9276296, -1.2848345, 0.46595967)
+
+[node name="Debris3" parent="." unique_id=1297523251 instance=ExtResource("1_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.136738, 1.2411069, -0.8383541)
+
+[node name="Debris4" parent="." unique_id=1923190772 instance=ExtResource("1_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8583813, 0.02270174, 0.50965166)
+
+[node name="Debris5" parent="." unique_id=464483461 instance=ExtResource("1_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10769534, 1.3972436, -1.5145577)
+
+[node name="Player" parent="." unique_id=1952148027 instance=ExtResource("2_sugp2")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=306921433]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=344275814]
+environment = SubResource("Environment_c6smh")

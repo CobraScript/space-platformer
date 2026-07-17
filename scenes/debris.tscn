@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bdvxumcj78myo"]
 
-[ext_resource type="PackedScene" uid="uid://lsbr4mmj7vbo" path="res://assets/art/debris[placeholder].glb" id="1_e8eya"]
+[ext_resource type="PackedScene" uid="uid://lsbr4mmj7vbo" path="res://assets/art/debris[placeholder].glb" id="1_wkiee"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_uehjo"]
 
@@ -14,6 +14,4 @@ freeze = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1469927642]
 shape = SubResource("SphereShape3D_f3t10")
 
-[node name="Pivot" type="Node3D" parent="." unique_id=2031565843]
-
-[node name="Model" parent="Pivot" unique_id=36186981 instance=ExtResource("1_e8eya")]
+[node name="Model" parent="." unique_id=36186981 instance=ExtResource("1_wkiee")]
