@@ -5,7 +5,7 @@
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_uehjo"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_f3t10"]
-radius = 0.15
+radius = 0.27750748
 
 [node name="Debris" type="RigidBody3D" unique_id=1567341222]
 collision_layer = 2
@@ -16,3 +16,4 @@ freeze = true
 shape = SubResource("SphereShape3D_f3t10")
 
 [node name="Model" parent="." unique_id=36186981 instance=ExtResource("1_wkiee")]
+transform = Transform3D(1.8688703, 0, 0, 0, 1.8688703, 0, 0, 0, 1.8688703, 0, 0, 0)
