@@ -21,17 +21,14 @@ ambient_light_color = Color(0.11327698, 0.11327698, 0.11327698, 1)
 [node name="Debris" parent="." unique_id=1567341222 instance=ExtResource("1_0wfyh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6434506, 0.5390956, -0.53451586)
 
-[node name="Debris2" parent="." unique_id=1113010559 instance=ExtResource("1_0wfyh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9276296, -1.2848345, 0.46595967)
+[node name="Debris2" parent="." unique_id=1619225920 instance=ExtResource("1_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.370406, 3.4144466, 7.8655124)
 
-[node name="Debris3" parent="." unique_id=1297523251 instance=ExtResource("1_0wfyh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.136738, 1.2411069, -0.8383541)
+[node name="Debris3" parent="." unique_id=64923102 instance=ExtResource("1_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.625034, 3.8221843, 35.450798)
 
-[node name="Debris4" parent="." unique_id=1923190772 instance=ExtResource("1_0wfyh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8583813, 0.02270174, 0.50965166)
-
-[node name="Debris5" parent="." unique_id=464483461 instance=ExtResource("1_0wfyh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10769534, 1.3972436, -1.5145577)
+[node name="Debris4" parent="." unique_id=895017096 instance=ExtResource("1_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.002386, 7.3219147, 81.679474)
 
 [node name="Player" parent="." unique_id=1952148027 instance=ExtResource("2_sugp2")]
 

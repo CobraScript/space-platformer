@@ -25,26 +25,26 @@ func _input(event: InputEvent) -> void:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+		# Turning the camera
 		if event is InputEventMouseMotion:
 			rotation.y += -event.relative.x * sensitivity
-			camera.rotation.x = clampf(
-				camera.rotation.x - event.relative.y * sensitivity,
-				-PI / 2, PI / 2
-			)
+			rotation.x = clampf(
+				rotation.x - event.relative.y * sensitivity, -PI / 2, PI / 2)
+			if debris:
+				position = debris.position - basis * debris_hold_offset
 		
-		if event.is_action_pressed("grab_debris") and not debris \
-				and ray.is_colliding():
+		# Grabbing debris (aka tungsten cube)
+		if event.is_action_pressed("grab_debris") and not debris and ray.is_colliding():
 			debris = ray.get_collider()
-			debris.freeze = true
 			var offset: Vector3 = basis * debris_hold_offset
 			position = debris.position - offset
 			velocity = Vector3.ZERO
-			debris.reparent(self)
 		
+		# Throwing debris and launching player at 5 billion mph
 		if event.is_action_pressed("throw_debris") and debris:
-			debris.reparent(get_parent())
 			debris.freeze = false
-			var dir: Vector3 = camera.global_basis * Vector3.FORWARD
+			var dir: Vector3 = basis * Vector3.FORWARD
 			debris.apply_impulse(debris_throw_impulse * dir)
+			debris.apply_torque_impulse(Vector3(randf_range(-5, 5),randf_range(-5, 5),randf_range(-5, 5)))
 			velocity = debris_throw_impulse / mass * -dir
 			debris = null
