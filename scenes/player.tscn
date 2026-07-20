@@ -6,6 +6,10 @@
 
 [node name="Player" type="CharacterBody3D" unique_id=1179191490]
 script = ExtResource("1_3vyb7")
+sensitivity = 0.002
+debris_hold_offset = Vector3(0, 0.2, -0.5)
+debris_throw_impulse = 6.0
+mass = 10.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=354367750]
 shape = SubResource("CapsuleShape3D_c6smh")

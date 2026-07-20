@@ -1,17 +1,22 @@
 extends CharacterBody3D
 
 
-@export var sensitivity: float = 0.002
-@export var debris_hold_offset: Vector3 = Vector3(0, 0.2, -0.5)
+@export var sensitivity: float
+@export var debris_hold_offset: Vector3
+@export var debris_throw_impulse: float
+@export var mass: float
 
 @onready var camera: Camera3D = $Camera3D
 @onready var ray: RayCast3D = $Camera3D/RayCast3D
 
-var has_debris: bool = false
+var debris: RigidBody3D
 
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+func _physics_process(delta: float) -> void:
+	move_and_slide()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("pointer_lock_enter"):
@@ -27,11 +32,19 @@ func _input(event: InputEvent) -> void:
 				-PI / 2, PI / 2
 			)
 		
-		if event.is_action_pressed("grab_debris") and not has_debris \
+		if event.is_action_pressed("grab_debris") and not debris \
 				and ray.is_colliding():
-			var debris: Node3D = ray.get_collider()
+			debris = ray.get_collider()
+			debris.freeze = true
 			var offset: Vector3 = basis * debris_hold_offset
 			position = debris.position - offset
+			velocity = Vector3.ZERO
 			debris.reparent(self)
-			debris.position = debris_hold_offset
-			has_debris = true
+		
+		if event.is_action_pressed("throw_debris") and debris:
+			debris.reparent(get_parent())
+			debris.freeze = false
+			var dir: Vector3 = camera.global_basis * Vector3.FORWARD
+			debris.apply_impulse(debris_throw_impulse * dir)
+			velocity = debris_throw_impulse / mass * -dir
+			debris = null
