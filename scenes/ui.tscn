@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://0ysaefpfdvx8"]
 
 [ext_resource type="Shader" uid="uid://dva7y8mgogg01" path="res://assets/invert.gdshader" id="1_nt7q6"]
+[ext_resource type="Script" uid="uid://cn10viokb6flb" path="res://scripts/ui.gd" id="1_x4jx1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_c6smh"]
 shader = ExtResource("1_nt7q6")
@@ -12,6 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_x4jx1")
 
 [node name="Crosshair" type="Control" parent="." unique_id=1048485022]
 layout_mode = 1
@@ -56,3 +58,38 @@ layout_mode = 0
 offset_left = 27.0
 offset_right = 33.0
 offset_bottom = 22.0
+
+[node name="ThrowSpeedPanel" type="Control" parent="." unique_id=2015251866]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -230.0
+offset_top = 30.0
+offset_right = -30.0
+offset_bottom = 180.0
+grow_horizontal = 0
+
+[node name="ColorRect" type="ColorRect" parent="ThrowSpeedPanel" unique_id=1060168515]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 190.0
+offset_bottom = 40.0
+color = Color(1, 0.55699646, 0.55699646, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="ThrowSpeedPanel" unique_id=1706388121]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 60.0
+offset_right = 190.0
+offset_bottom = 90.0
+color = Color(1, 0.93719584, 0.24132377, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="ThrowSpeedPanel" unique_id=1866484670]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 110.0
+offset_right = 190.0
+offset_bottom = 140.0
+color = Color(0.50438434, 1, 0.9231401, 1)
