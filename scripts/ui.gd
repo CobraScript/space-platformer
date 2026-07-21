@@ -10,6 +10,7 @@ func _ready() -> void:
 	for child in throw_speed_panel.get_children():
 		child.modulate.a = 0.2
 	throw_speed_panel.get_child(throw_speed_index).modulate.a = 1
+	throw_speed_panel.get_child(throw_speed_index).scale = Vector2(1.1, 1.1)
 
 func _input(event: InputEvent) -> void:
 	var prev_index: int = throw_speed_index
@@ -19,7 +20,9 @@ func _input(event: InputEvent) -> void:
 		throw_speed_index += 1
 	if throw_speed_index != prev_index:
 		throw_speed_panel.get_child(prev_index).modulate.a = 0.2
+		throw_speed_panel.get_child(prev_index).scale = Vector2(1, 1)
 		throw_speed_panel.get_child(throw_speed_index).modulate.a = 1
+		throw_speed_panel.get_child(throw_speed_index).scale = Vector2(1.1, 1.1)
 
 func set_back_camera_texture(texture: ViewportTexture) -> void:
 	$BackCameraDisplay/TextureRect.texture = texture

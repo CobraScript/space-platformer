@@ -5,6 +5,7 @@ extends CharacterBody3D
 @export var debris_hold_offset: Vector3
 @export var mass: float
 @export var debris_throw_impulses: Array[float]
+@export var push_curve: Curve
 
 @onready var ray: RayCast3D = $Camera3D/RayCast3D
 @onready var back_cam: Camera3D = $SubViewport/BackCamera
@@ -50,6 +51,8 @@ func _input(event: InputEvent) -> void:
 			var offset: Vector3 = basis * debris_hold_offset
 			position = debris.position - offset
 			velocity = Vector3.ZERO
+			var grab_tween: Tween = create_tween()
+			grab_tween.tween_property($Arms, "position:z", 0, 0.1)
 		
 		# Throwing debris and launching player
 		if event.is_action_pressed("throw_debris") and debris:
@@ -62,6 +65,9 @@ func _input(event: InputEvent) -> void:
 			))
 			velocity = impulse / mass * -dir
 			debris = null
+			var grab_tween: Tween = create_tween()
+			grab_tween.tween_property($Arms, "position:z", 1, 0.5).set_custom_interpolator(push_curve.sample_baked)
+			
 		
 		# Throw speed
 		if event.is_action_pressed("throw_speed_up"):

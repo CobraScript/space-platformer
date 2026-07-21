@@ -83,7 +83,7 @@ offset_left = 10.0
 offset_top = 10.0
 offset_right = 190.0
 offset_bottom = 40.0
-color = Color(1, 0.55699646, 0.55699646, 1)
+color = Color(1, 0, 0, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="ThrowSpeedPanel" unique_id=1706388121]
 layout_mode = 0
@@ -91,7 +91,7 @@ offset_left = 10.0
 offset_top = 60.0
 offset_right = 190.0
 offset_bottom = 90.0
-color = Color(1, 0.93719584, 0.24132377, 1)
+color = Color(1, 1, 0, 1)
 
 [node name="ColorRect3" type="ColorRect" parent="ThrowSpeedPanel" unique_id=1866484670]
 layout_mode = 0
@@ -99,7 +99,7 @@ offset_left = 10.0
 offset_top = 110.0
 offset_right = 190.0
 offset_bottom = 140.0
-color = Color(0.50438434, 1, 0.9231401, 1)
+color = Color(0, 1, 1, 1)
 
 [node name="BackCameraDisplay" type="Control" parent="." unique_id=169819126]
 layout_mode = 1
