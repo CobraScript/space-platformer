@@ -2,9 +2,16 @@
 
 [ext_resource type="Shader" uid="uid://dva7y8mgogg01" path="res://assets/invert.gdshader" id="1_nt7q6"]
 [ext_resource type="Script" uid="uid://cn10viokb6flb" path="res://scripts/ui.gd" id="1_x4jx1"]
+[ext_resource type="Shader" uid="uid://bq4qjlwgjuf2x" path="res://assets/back_cam.gdshader" id="3_yev5y"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_c6smh"]
 shader = ExtResource("1_nt7q6")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oshqu"]
+shader = ExtResource("1_nt7q6")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x4jx1"]
+shader = ExtResource("3_yev5y")
 
 [node name="UI" type="Control" unique_id=392161742]
 layout_mode = 3
@@ -93,3 +100,25 @@ offset_top = 110.0
 offset_right = 190.0
 offset_bottom = 140.0
 color = Color(0.50438434, 1, 0.9231401, 1)
+
+[node name="BackCameraDisplay" type="Control" parent="." unique_id=169819126]
+layout_mode = 1
+anchors_preset = 0
+offset_right = 305.0
+offset_bottom = 305.0
+
+[node name="ColorRect" type="ColorRect" parent="BackCameraDisplay" unique_id=1307611635]
+material = SubResource("ShaderMaterial_oshqu")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+
+[node name="TextureRect" type="TextureRect" parent="BackCameraDisplay" unique_id=248446200]
+material = SubResource("ShaderMaterial_x4jx1")
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 300.0

@@ -6,16 +6,25 @@ extends CharacterBody3D
 @export var mass: float
 @export var debris_throw_impulses: Array[float]
 
-@onready var camera: Camera3D = $Camera3D
 @onready var ray: RayCast3D = $Camera3D/RayCast3D
+@onready var back_cam: Camera3D = $SubViewport/BackCamera
+@onready var back_cam_subviewport: SubViewport = $SubViewport
 
 var debris: RigidBody3D
 var throw_speed_index: int = 0
+var back_cam_transform: Transform3D
 
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	back_cam_subviewport.world_3d = get_viewport().world_3d
+	back_cam_transform = back_cam.transform
 
+func _process(delta: float) -> void:
+	var new_transform: Transform3D = transform * back_cam_transform
+	back_cam.basis = new_transform.basis
+	back_cam.position = new_transform.origin
+	
 func _physics_process(delta: float) -> void:
 	move_and_slide()
 
@@ -60,3 +69,6 @@ func _input(event: InputEvent) -> void:
 		if event.is_action_pressed("throw_speed_down"):
 			throw_speed_index += 1
 		throw_speed_index = clampi(throw_speed_index, 0, 2)
+
+func get_back_camera_texture() -> ViewportTexture:
+	return back_cam_subviewport.get_texture()

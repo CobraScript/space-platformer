@@ -20,3 +20,6 @@ func _input(event: InputEvent) -> void:
 	if throw_speed_index != prev_index:
 		throw_speed_panel.get_child(prev_index).modulate.a = 0.2
 		throw_speed_panel.get_child(throw_speed_index).modulate.a = 1
+
+func set_back_camera_texture(texture: ViewportTexture) -> void:
+	$BackCameraDisplay/TextureRect.texture = texture
