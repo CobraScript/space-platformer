@@ -14,9 +14,9 @@ height = 1.0
 [node name="Player" type="CharacterBody3D" unique_id=1179191490]
 collision_mask = 3
 motion_mode = 1
+wall_min_slide_angle = 3.1415927
 script = ExtResource("1_3vyb7")
 sensitivity = 0.004
-debris_hold_offset = Vector3(0, 0, -1)
 mass = 60.0
 debris_throw_impulses = Array[float]([400.0, 240.0, 150.0])
 push_curve = SubResource("Curve_g2els")
@@ -24,6 +24,9 @@ push_curve = SubResource("Curve_g2els")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=354367750]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_c6smh")
+
+[node name="DebrisHoldPos" type="Marker3D" parent="." unique_id=1271687408]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1179039317]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)

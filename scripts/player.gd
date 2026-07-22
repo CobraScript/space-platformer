@@ -2,12 +2,12 @@ extends CharacterBody3D
 
 
 @export var sensitivity: float
-@export var debris_hold_offset: Vector3
 @export var mass: float
 @export var debris_throw_impulses: Array[float]
 @export var push_curve: Curve
 
 @onready var ray: RayCast3D = $Camera3D/RayCast3D
+@onready var debris_hold_pos: Marker3D = $DebrisHoldPos
 @onready var back_cam: Camera3D = $SubViewport/BackCamera
 @onready var back_cam_subviewport: SubViewport = $SubViewport
 
@@ -42,13 +42,13 @@ func _input(event: InputEvent) -> void:
 			rotation.x = clampf(rotation.x - event.relative.y * sensitivity,
 								-PI / 2, PI / 2)
 			if debris:
-				position = debris.position - basis * debris_hold_offset
+				position = debris.position - basis * debris_hold_pos.position
 		
 		# Grabbing debris
 		if event.is_action_pressed("grab_debris") and not debris \
 				and ray.is_colliding():
 			debris = ray.get_collider()
-			var offset: Vector3 = basis * debris_hold_offset
+			var offset: Vector3 = basis * debris_hold_pos.position
 			position = debris.position - offset
 			velocity = Vector3.ZERO
 			var grab_tween: Tween = create_tween()
@@ -66,8 +66,8 @@ func _input(event: InputEvent) -> void:
 			velocity = impulse / mass * -dir
 			debris = null
 			var grab_tween: Tween = create_tween()
-			grab_tween.tween_property($Arms, "position:z", 1, 0.5).set_custom_interpolator(push_curve.sample_baked)
-			
+			grab_tween.tween_property($Arms, "position:z", 1, 0.5) \
+				.set_custom_interpolator(push_curve.sample_baked)
 		
 		# Throw speed
 		if event.is_action_pressed("throw_speed_up"):

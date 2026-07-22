@@ -5,15 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://bcp8d3vsp6rnd" path="res://scenes/player.tscn" id="2_sugp2"]
 [ext_resource type="PackedScene" uid="uid://0ysaefpfdvx8" path="res://scenes/ui.tscn" id="3_sugp2"]
 
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_sugp2"]
-
-[sub_resource type="Sky" id="Sky_0wfyh"]
-sky_material = SubResource("PanoramaSkyMaterial_sugp2")
-
 [sub_resource type="Environment" id="Environment_c6smh"]
 background_mode = 1
 background_color = Color(0.015686275, 0, 0.05490196, 1)
-sky = SubResource("Sky_0wfyh")
 ambient_light_source = 2
 ambient_light_color = Color(0.11327698, 0.11327698, 0.11327698, 1)
 

@@ -3,6 +3,10 @@
 [ext_resource type="Script" uid="uid://becou7f6gfkxg" path="res://scripts/debris.gd" id="1_s4vdx"]
 [ext_resource type="PackedScene" uid="uid://lsbr4mmj7vbo" path="res://assets/art/debris[placeholder].glb" id="1_wkiee"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_s4vdx"]
+friction = 0.53
+bounce = 0.44
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_f3t10"]
 radius = 0.27750748
 
@@ -10,6 +14,7 @@ radius = 0.27750748
 collision_layer = 2
 collision_mask = 3
 mass = 40.0
+physics_material_override = SubResource("PhysicsMaterial_s4vdx")
 freeze = true
 script = ExtResource("1_s4vdx")
 
